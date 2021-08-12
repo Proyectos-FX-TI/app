@@ -5,7 +5,6 @@ import Auth from './src/components/Auth';
 import firebase from './src/utils/firebase';
 import 'firebase/auth';
 //import MapScreen from './src/screens/MapScreen';
-import Tab from './src/components/Tab';
 import AppStack from './src/navigation/AppStack';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -32,9 +31,6 @@ export default function App() {
   if (user === undefined) return null;
 
   return (
-    // <>
-    //   {user ? <Tab user={user} /> : <Auth />}
-    // </>
     <>
       {user ? <AppStack user={user} /> : <Auth />}
     </>
