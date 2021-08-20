@@ -62,6 +62,9 @@ export default function ProfileScreen({ navigation, route }) {
                   >
                     <Text style={styles.userBtnTxt}>Cerrar Sesión</Text>
                   </TouchableOpacity>
+
+                  
+                  
                 </>
               {/* )} */}
             </View>
