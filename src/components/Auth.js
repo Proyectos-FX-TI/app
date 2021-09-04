@@ -20,7 +20,7 @@ export default function Auth() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image
-        source={require('../assets/logo.png')}
+        source={require('../assets/logo.jpeg')}
         style={styles.logo}
       />
       <Text style={styles.text}>Rentall App</Text>

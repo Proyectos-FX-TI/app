@@ -8,7 +8,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import {MapScreenNew} from '../screens/MapScreenNew';
+import { ExploreScreen } from '../screens/ExploreScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -56,11 +56,11 @@ const MapsStack = ({ navigation, route }) => (
   </Stack.Navigator>
 );
 
-const MapsStackNew = ({ navigation, route }) => (
+const ExploreStack = ({ navigation, route }) => (
   <Stack.Navigator>
     <Stack.Screen
-      name="MapScreenNew" 
-      component={MapScreenNew}
+      name="ExploreScreen" 
+      component={ExploreScreen}
       options={{
         headerShown: true,
         headerTitle: 'Mapa',
@@ -98,9 +98,9 @@ export default function AppStack(props) {
             ),
         }}
         />
-         <Drawer.Screen 
-        name="MapScreenNew" 
-        component={MapScreenNew}
+        <Drawer.Screen 
+        name="ExploreScreen" 
+        component={ExploreStack}
         options={{
             tabBarIcon: () => (
               <FontAwesome5 name="map"/>
