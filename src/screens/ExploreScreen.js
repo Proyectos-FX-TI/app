@@ -18,6 +18,8 @@ import { useTheme } from '@react-navigation/native';
 
 import {useLocation} from '../hooks/useLocation';
 
+import PostCarouselItem from '../components/PostCarouselItem';
+
 const { width, height } = Dimensions.get("window");
 const CARD_HEIGHT = 220;
 const CARD_WIDTH = width * 0.8;
@@ -144,30 +146,8 @@ export const ExploreScreen = () => {
         )}
       >
         {state.markers.map((marker, index) =>(
-          <View style={styles.card} key={index}>
-            <Image 
-              source={marker.image}
-              style={styles.cardImage}
-              resizeMode="cover"
-            />
-            <View style={styles.textContent}>
-              <Text numberOfLines={1} style={styles.cardtitle}>{marker.title}</Text>
-              <Text numberOfLines={1} style={styles.cardDescription}>{marker.description}</Text>
-              <Text numberOfLines={1} style={styles.cardDescription}>${marker.price}</Text>
-              <View style={styles.button}>
-                <TouchableOpacity
-                  onPress={() => {}}
-                  style={[styles.signIn, {
-                    borderColor: '#FF6347',
-                    borderWidth: 1
-                  }]}
-                >
-                  <Text style={[styles.textSign, {
-                    color: '#FF6347'
-                  }]}>Ordenar ahora</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
+          <View  key={index}>
+            <PostCarouselItem post={marker} />
           </View>
         ))}
       </Animated.ScrollView>

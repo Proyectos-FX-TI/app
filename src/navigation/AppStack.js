@@ -9,6 +9,7 @@ import EditProfileScreen from '../screens/EditProfileScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { ExploreScreen } from '../screens/ExploreScreen';
+import { ProductsScreen } from '../screens/ProductsScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -70,6 +71,20 @@ const ExploreStack = ({ navigation, route }) => (
   </Stack.Navigator>
 );
 
+const ProductStack = ({ navigation, route }) => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="ProductsScreen" 
+      component={ProductsScreen}
+      options={{
+        headerShown: true,
+        headerTitle: 'Mapa',
+        headerTitleAlign: 'center',
+      }}
+    />
+  </Stack.Navigator>
+);
+
 
 
 export default function AppStack(props) {
@@ -101,6 +116,15 @@ export default function AppStack(props) {
         <Drawer.Screen 
         name="ExploreScreen" 
         component={ExploreStack}
+        options={{
+            tabBarIcon: () => (
+              <FontAwesome5 name="map"/>
+            ),
+        }}
+        />
+         <Drawer.Screen 
+        name="ProductsScreen" 
+        component={ProductStack}
         options={{
             tabBarIcon: () => (
               <FontAwesome5 name="map"/>
