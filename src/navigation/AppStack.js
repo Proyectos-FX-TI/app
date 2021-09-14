@@ -60,7 +60,7 @@ const MapsStack = ({ navigation, route }) => (
 const ExploreStack = ({ navigation, route }) => (
   <Stack.Navigator>
     <Stack.Screen
-      name="ExploreScreen" 
+      name="Mapa" 
       component={ExploreScreen}
       options={{
         headerShown: true,
@@ -74,11 +74,11 @@ const ExploreStack = ({ navigation, route }) => (
 const ProductStack = ({ navigation, route }) => (
   <Stack.Navigator>
     <Stack.Screen
-      name="ProductsScreen" 
+      name="Productos" 
       component={ProductsScreen}
       options={{
         headerShown: true,
-        headerTitle: 'Mapa',
+        headerTitle: 'Productos',
         headerTitleAlign: 'center',
       }}
     />
@@ -103,7 +103,7 @@ export default function AppStack(props) {
             ),
         }}
         />
-        <Drawer.Screen 
+        {/* <Drawer.Screen 
         name="Mapa" 
         component={MapsStack}
         initialParams={{ user: user }}
@@ -112,9 +112,9 @@ export default function AppStack(props) {
               <FontAwesome5 name="map"/>
             ),
         }}
-        />
+        /> */}
         <Drawer.Screen 
-        name="ExploreScreen" 
+        name="Mapa" 
         component={ExploreStack}
         options={{
             tabBarIcon: () => (
@@ -123,7 +123,7 @@ export default function AppStack(props) {
         }}
         />
          <Drawer.Screen 
-        name="ProductsScreen" 
+        name="Productos" 
         component={ProductStack}
         options={{
             tabBarIcon: () => (
