@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   View,
   Text,
@@ -11,11 +11,15 @@ import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import {showalert} from '../utils/ShowAlert';
 import SocialButton from '../components/SocialButton';
+import {AuthContext} from '../navigation/AuthProvider';
 
 export default function LoginScreen(props) {
   const {changeForm} = props;
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+
+  const {fbLogin} = useContext(AuthContext);
 
   const login = () => {
 
@@ -73,6 +77,7 @@ export default function LoginScreen(props) {
             btnType="facebook"
             color="#4867aa"
             backgroundColor="#e6eaf4"
+            onPress={()=>fbLogin()}
           />
           <SocialButton
             buttonTitle="Inicia sesión con Google"
