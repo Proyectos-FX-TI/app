@@ -19,7 +19,7 @@ export default function LoginScreen(props) {
   const [password, setPassword] = useState();
 
 
-  const {fbLogin} = useContext(AuthContext);
+
 
   const login = () => {
 

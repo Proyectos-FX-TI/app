@@ -10,6 +10,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { ExploreScreen } from '../screens/ExploreScreen';
 import { ProductsScreen } from '../screens/ProductsScreen';
+import { DetailPostScreen } from '../screens/DetailPostScreen';
+import {SearchScreen} from '../screens/SearchScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -37,6 +39,13 @@ const ProfileStack = ({ navigation, route }) => (
             shadowColor: '#fff',
             elevation: 0,
           },
+        }}
+      />
+      <Stack.Screen
+        name="DetailPost" 
+        component={DetailPostScreen}
+        options={{
+          headerShown: false,
         }}
       />
     </Stack.Navigator>
@@ -77,14 +86,28 @@ const ProductStack = ({ navigation, route }) => (
       name="ProductsScreen" 
       component={ProductsScreen}
       options={{
-        headerShown: true,
-        headerTitle: 'Mapa',
+        headerShown: false,
+        headerTitle: 'Productos',
         headerTitleAlign: 'center',
       }}
     />
   </Stack.Navigator>
 );
 
+
+const SearchStack = ({ navigation, route }) => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="ProductsScreen" 
+      component={SearchScreen}
+      options={{
+        headerShown: false,
+        headerTitle: 'Buscar productos',
+        headerTitleAlign: 'center',
+      }}
+    />
+  </Stack.Navigator>
+);
 
 
 export default function AppStack(props) {
@@ -131,6 +154,16 @@ export default function AppStack(props) {
             ),
         }}
         />
+         <Drawer.Screen 
+        name="SearchScreen" 
+        component={SearchStack}
+        options={{
+            tabBarIcon: () => (
+              <FontAwesome5 name="map"/>
+            ),
+        }}
+        />
+     
       </Drawer.Navigator>
     </NavigationContainer>
   );

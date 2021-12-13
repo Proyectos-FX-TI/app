@@ -1,39 +1,47 @@
 import React from 'react'
-import { View, Text, Image, Pressable } from 'react-native'
+import { View, Text, Image, Pressable, TouchableOpacity } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import styles from './styles'
 
-const Post = ({ post }) => {
+const Post = ({ post, navigation }) => {
 
-
+    const { top } = useSafeAreaInsets();
 
     return (
-        <Pressable  style={styles.container}>
+       
+        <Pressable  onPress={() => {
+            navigation.navigate('DetailPost',{
+            post: post
+            });
+          }}  style={{...styles.container, marginTop:top+65}}>
 
-            {/* image */}
-            <Image
-                style={styles.image}
-                source={{ uri: post.image }}
-            />
+        {/* image */}
+        <Image
+            style={styles.image}
+            source={{ uri: post.image }}
+        />
 
-    
 
-            {/* Tpes and description */}
-            <Text style={styles.description} numberOfLines={2}>
-                {post.title}
-            </Text>
 
-            {/* Old price and new price */}
-            <Text style={styles.prices} >
-            <Text style={styles.newPrice}> ${post.price}</Text></Text>
+        {/* Tpes and description */}
+        <Text style={styles.description} numberOfLines={2}>
+            {post.title}
+        </Text>
 
-            {/* Total price */}
+        {/* Old price and new price */}
+        <Text style={styles.prices} >
+        <Text style={styles.newPrice}> ${post.price}</Text></Text>
 
-            <Text style={styles.totalPrice}>
-                ${post.price} Total
+        {/* Total price */}
+
+        <Text style={styles.totalPrice}>
+            ${post.price} Total
         </Text>
 
 
         </Pressable>
+       
+        
     )
 }
 
