@@ -12,6 +12,7 @@ import { ExploreScreen } from '../screens/ExploreScreen';
 import { ProductsScreen } from '../screens/ProductsScreen';
 import { DetailPostScreen } from '../screens/DetailPostScreen';
 import {SearchScreen} from '../screens/SearchScreen';
+import { EditPostScreen } from '../screens/EditPostScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -41,20 +42,14 @@ const ProfileStack = ({ navigation, route }) => (
           },
         }}
       />
-      <Stack.Screen
-        name="DetailPost" 
-        component={DetailPostScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
+      
     </Stack.Navigator>
 );
 
 const MapsStack = ({ navigation, route }) => (
   <Stack.Navigator>
     <Stack.Screen
-      name="Perfil" 
+      name="Mapa" 
       component={MapScreen}
       initialParams={{ user: route.params.user }} 
       options={{
@@ -80,19 +75,7 @@ const ExploreStack = ({ navigation, route }) => (
   </Stack.Navigator>
 );
 
-const ProductStack = ({ navigation, route }) => (
-  <Stack.Navigator>
-    <Stack.Screen
-      name="ProductsScreen" 
-      component={ProductsScreen}
-      options={{
-        headerShown: false,
-        headerTitle: 'Productos',
-        headerTitleAlign: 'center',
-      }}
-    />
-  </Stack.Navigator>
-);
+
 
 
 const SearchStack = ({ navigation, route }) => (
@@ -102,13 +85,39 @@ const SearchStack = ({ navigation, route }) => (
       component={SearchScreen}
       options={{
         headerShown: false,
-        headerTitle: 'Buscar productos',
+        headerTitle: 'Productos',
         headerTitleAlign: 'center',
       }}
     />
+    <Stack.Screen
+        name="DetailPost" 
+        component={DetailPostScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+   
   </Stack.Navigator>
 );
 
+const EditPostStack = ({ navigation, route }) => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="EditProductsScreen" 
+      component={ProductsScreen}
+      options={{
+        headerShown: false
+      }}
+    />
+       <Stack.Screen
+        name="EditPost" 
+        component={EditPostScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+  </Stack.Navigator>
+);
 
 export default function AppStack(props) {
   const { user } = props;
@@ -146,17 +155,17 @@ export default function AppStack(props) {
         }}
         />
          <Drawer.Screen 
-        name="ProductsScreen" 
-        component={ProductStack}
+        name="Productos" 
+        component={SearchStack}
         options={{
             tabBarIcon: () => (
               <FontAwesome5 name="map"/>
             ),
         }}
         />
-         <Drawer.Screen 
-        name="SearchScreen" 
-        component={SearchStack}
+        <Drawer.Screen 
+        name="EditProductos" 
+        component={EditPostStack}
         options={{
             tabBarIcon: () => (
               <FontAwesome5 name="map"/>

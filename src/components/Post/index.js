@@ -3,14 +3,15 @@ import { View, Text, Image, Pressable, TouchableOpacity } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import styles from './styles'
 
-const Post = ({ post, navigation }) => {
+const Post = ({ post, navigation, edit=null }) => {
 
     const { top } = useSafeAreaInsets();
+    const route = (edit) ? 'EditPost' : 'DetailPost' ;
 
     return (
-       
-        <Pressable  onPress={() => {
-            navigation.navigate('DetailPost',{
+        <Pressable  
+            onPress={() => {
+            navigation.navigate(route,{
             post: post
             });
           }}  style={{...styles.container, marginTop:top+65}}>

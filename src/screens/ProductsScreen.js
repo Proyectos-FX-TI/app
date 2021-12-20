@@ -12,7 +12,7 @@ const screenWidth = Dimensions.get('window').width;
 export const ProductsScreen = ({navigation}) => {
     const renderItem = ({ item }) => (
     
-        <Post post={item} navigation={navigation} />
+        <Post post={item} navigation={navigation} edit={true}/>
       );
 
     return (

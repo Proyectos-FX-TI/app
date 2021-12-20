@@ -23,12 +23,12 @@ export const SearchScreen = ({navigation}) => {
       const { top } = useSafeAreaInsets();
 
       const [ term, setTerm ] = useState('');
-      const [productFiltered, setProductFiltered] = useState([])
-
+      const [productFiltered, setProductFiltered] = useState(markers);
+      
       useEffect(() => {
         
         if ( term.length === 0 ) {
-            return setProductFiltered([]);
+            return setProductFiltered(markers);
         }
 
         console.log(isNaN( Number(term) ))
